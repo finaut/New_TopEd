@@ -1,0 +1,7 @@
+{
+  "name": "New_TopEd",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}
