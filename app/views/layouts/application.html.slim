@@ -2,15 +2,15 @@ doctype html
 html
   head
     title
-      | NewToped
+      | Top-notch Education Consult Ukraine
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-  body
+
+    = render 'other/meta_and_link'
+  body.vsc-initialized
+    = render 'other/header'
     = yield
 
-    - if current_user
-      = link_to 'Logout', destroy_user_session_path, method: :delete
-    - else
-      = link_to 'Login', new_user_session_path
+    = render 'other/footer'
