@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/show'
+  get 'home/company'
+  get 'home/ukrain'
+  get 'home/required_documents'
   resources :universities
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
