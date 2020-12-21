@@ -36,6 +36,6 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-    config.included_models = [User, Faculty, University, Comment ]
+    config.included_models = [User, Faculty, University, Comment, Order ]
   end
 end

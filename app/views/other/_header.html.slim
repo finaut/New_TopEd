@@ -1,0 +1,33 @@
+header.d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.shadow-sm
+  p.h5.my-0.me-md-auto.fw-normal
+    = link_to 'Top-notch Education Consult Ukraine', root_path, class: 'header-title'
+  nav.my-2.my-md-0.me-md-3
+    -if current_page? home_required_documents_path
+      = link_to 'Documents', home_required_documents_path, class: 'p-2 action-link'
+    - else
+      = link_to 'Documents', home_required_documents_path, class: 'p-2 header-link'
+
+    - if current_page? home_ukrain_path
+      = link_to 'Ukrain', home_ukrain_path, class: 'p-2 action-link'
+    - else
+      = link_to 'Ukrain', home_ukrain_path, class: 'p-2 header-link'
+
+    - if current_page? home_company_path
+      = link_to 'Company', home_company_path, class: 'p-2 action-link '
+    - else
+      = link_to 'Company', home_company_path, class: 'p-2 header-link '
+
+    - if current_page? universities_path
+      = link_to 'Universities', universities_path, class: 'p-2 action-link'
+    - else
+      = link_to 'Universities', universities_path, class: 'p-2 header-link'
+    - if current_page? users_show_path
+      = link_to current_user.first_name,  users_show_path, class: 'p-2 action-link'
+    - else
+      = link_to current_user.first_name,  users_show_path, class: 'p-2 header-link'
+
+      / login, sign_in, logout
+  - if current_user
+    = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-primary'
+  - else
+    = link_to 'Login', new_user_session_path, class: 'btn btn-outline-primary'
