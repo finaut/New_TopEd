@@ -18,14 +18,15 @@ h2
     = f.text_field :last_name
 
   .field
+    = f.label :mobile_number
+    br
+    = f.text_field :mobile_number
+
+  .field
     = f.label :country
     br
     = f.text_field :country
 
-  .field
-    = f.label :mobile_number
-    br
-    = f.text_field :mobile_number
   .field
     = f.label :password
     - if @minimum_password_length
