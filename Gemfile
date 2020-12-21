@@ -9,6 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'turbolinks'
 gem 'devise'
 gem 'rails_admin', '2.0.2'
 gem 'slim-rails'
@@ -24,7 +25,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'erb2slim'
+  # gem 'erb2slim'
   # gem 'html2slim'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

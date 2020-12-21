@@ -62,24 +62,13 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
-    erb2slim (0.0.1)
-      erubis
-      haml
-      haml2slim
-      hpricot
     erubi (1.10.0)
-    erubis (2.7.0)
     ffi (1.14.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
-    haml2slim (0.4.7)
-      haml (>= 3.0)
-      nokogiri
-      ruby_parser
-    hpricot (0.8.6)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
@@ -194,8 +183,6 @@ GEM
       rspec-support (~> 3.9)
     rspec-support (3.10.0)
     ruby_dep (1.5.0)
-    ruby_parser (3.15.0)
-      sexp_processor (~> 4.9)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -215,7 +202,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sexp_processor (4.15.1)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -239,6 +225,9 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     warden (1.2.9)
@@ -259,7 +248,6 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   devise
-  erb2slim
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (= 1.2.3)
@@ -272,6 +260,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  turbolinks
   tzinfo-data
   web-console (>= 3.3.0)
 
