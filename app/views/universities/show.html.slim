@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @university.name
+p
+  strong Description:
+  = @university.description
+p
+  strong Image:
+  = @university.image
+p
+  strong Location:
+  = @university.location
+
+=> link_to 'Edit', edit_university_path(@university)
+'|
+=< link_to 'Back', universities_path
