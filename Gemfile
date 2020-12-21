@@ -14,6 +14,9 @@ gem 'devise'
 gem 'rails_admin', '2.0.2'
 gem 'slim-rails'
 
+# for download image
+gem 'paperclip', '6.1.0'
+
 
 group :production do
   gem 'pg', '1.2.3'
