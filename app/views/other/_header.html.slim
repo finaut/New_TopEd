@@ -13,6 +13,12 @@ nav.navbar.navbar-expand-sm.navbar-dark.bg-dark[aria-label="Third navbar example
             = link_to 'Documents', home_required_documents_path, class: 'nav-link'
 
         li.nav-item
+          -if current_page? home_service_path
+            = link_to 'Service', home_service_path, class: 'nav-link active'
+          - else
+            = link_to 'Service', home_service_path, class: 'nav-link'
+
+        li.nav-item
           - if current_page? home_ukrain_path
             = link_to 'Ukrain', home_ukrain_path, class: 'nav-link active'
           - else
