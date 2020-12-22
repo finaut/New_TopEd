@@ -3,4 +3,5 @@ class HomeController < ApplicationController
   def company; end
   def ukrain; end
   def required_documents; end
+  def service; end
 end
