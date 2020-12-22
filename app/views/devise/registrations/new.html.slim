@@ -1,8 +1,10 @@
 div.container
   div.row.g-1.justify-content-md-center
     div.col-sm-6
-      h3.mb-3.text-align-center Sign up
-
+      br
+      br
+      h1.text-center Sign up
+      br
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
 
         - if resource.errors.any?
@@ -24,4 +26,4 @@ div.container
           br
           = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control',  placeholder: 'Confirm password *'
           br
-          = f.submit "Sign up", class: 'btn btn-primary', style: 'float: center '
+          = f.submit "Sign up", class: 'btn btn-primary'

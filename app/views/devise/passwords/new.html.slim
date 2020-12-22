@@ -1,8 +1,10 @@
 div.container
   div.row.g-1.justify-content-md-center
     div.col-sm-6
-      h3.mb-3 Forgot your password?
-
+      br
+      br
+      h1.text-center Forgot your password?
+      br
       = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
 
         - if resource.errors.any?
@@ -13,3 +15,5 @@ div.container
           = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
           br
           = f.submit 'Reset password', class: 'btn btn-primary', style: 'float: right'
+          br
+          br
