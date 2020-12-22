@@ -9,8 +9,14 @@ html
     = javascript_include_tag 'application'
 
     = render 'other/meta_and_link'
+
   body.vsc-initialized
+
     = render 'other/header'
+
+    - if current_page? root_path
+      = render 'other/carousel'
+      
     = yield
 
     = render 'other/footer'
