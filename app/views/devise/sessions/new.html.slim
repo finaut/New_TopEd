@@ -1,8 +1,9 @@
 div.container
   div.row.g-1.justify-content-md-center
     div.col-sm-6
-      h3.mb-3.text-align-center
-        | Log in
+      br
+      br
+      h1.text-center Log in
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           = f.label :email
