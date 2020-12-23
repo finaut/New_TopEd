@@ -1,0 +1,50 @@
+nav.navbar.navbar-expand-sm.navbar-dark.bg-dark[aria-label="Third navbar example"]
+  div.container-fluid
+    = link_to 'Top-notch Education Consult Ukraine', root_path, class: 'header-title'
+    button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
+  div.container-fluid
+    div#navbarsExample03.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-sm-0
+        li.nav-item
+          -if current_page? home_required_documents_path
+            = link_to 'Documents', home_required_documents_path, class: 'nav-link active'
+          - else
+            = link_to 'Documents', home_required_documents_path, class: 'nav-link'
+
+        li.nav-item
+          -if current_page? home_service_path
+            = link_to 'Service', home_service_path, class: 'nav-link active'
+          - else
+            = link_to 'Service', home_service_path, class: 'nav-link'
+
+        li.nav-item
+          - if current_page? home_ukrain_path
+            = link_to 'Ukrain', home_ukrain_path, class: 'nav-link active'
+          - else
+            = link_to 'Ukrain', home_ukrain_path, class: 'nav-link'
+
+        li.nav-item
+          - if current_page? home_company_path
+            = link_to 'Company', home_company_path, class: 'nav-link active'
+          - else
+            = link_to 'Company', home_company_path, class: 'nav-link'
+
+        li.nav-item
+          - if current_page? universities_path
+            = link_to 'Universities', universities_path, class: 'nav-link active'
+          - else
+            = link_to 'Universities', universities_path, class: 'nav-link'
+
+
+          /login, sign_in, logout
+        - if current_user
+          -if user_signed_in?
+            = link_to current_user.first_name,  users_show_path, class: 'btn btn-outline-primary login-button'
+
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary login-button'
+        - else
+          = link_to 'Sign in', new_user_session_path, class: 'btn btn-outline-primary login-button'
+          = link_to 'Sing up', new_user_registration_path, class: 'btn btn-primary login-button'
+      / form
+      /   input.form-control[type="text" placeholder="Search" aria-label="Search"]
