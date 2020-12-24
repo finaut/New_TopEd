@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_023932) do
+ActiveRecord::Schema.define(version: 2020_12_21_050236) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "university_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["university_id"], name: "index_comments_on_university_id"
+  end
 
   create_table "faculties", force: :cascade do |t|
     t.string "name"
@@ -25,6 +34,20 @@ ActiveRecord::Schema.define(version: 2020_12_21_023932) do
     t.index ["university_id"], name: "index_faculties_universities_on_university_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "mobile_number"
+    t.string "country"
+    t.string "faculty"
+    t.string "university"
+    t.string "status"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "universities", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -33,12 +56,13 @@ ActiveRecord::Schema.define(version: 2020_12_21_023932) do
     t.bigint "image_file_size"
     t.datetime "image_updated_at"
     t.string "location"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
