@@ -62,7 +62,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-bootstrap-views (1.1.0)
     diff-lcs (1.4.4)
     erubi (1.10.0)
     ffi (1.14.0)
@@ -259,7 +258,6 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   devise
-  devise-bootstrap-views (~> 1.0)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   paperclip (= 6.1.0)
