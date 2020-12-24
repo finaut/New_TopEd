@@ -5,6 +5,7 @@ class CreateUniversities < ActiveRecord::Migration[5.2]
       t.text :description
       t.attachment :image
       t.string :location
+      t.string :url
       t.timestamps
     end
   end
