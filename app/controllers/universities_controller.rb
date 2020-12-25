@@ -4,6 +4,7 @@ class UniversitiesController < ApplicationController
   # GET /universities
   # GET /universities.json
   def index
+    @faculties = Faculty.all
     @universities = University.all
   end
 
