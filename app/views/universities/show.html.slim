@@ -1,18 +1,52 @@
-p#notice = notice
 
-p
-  strong Name:
-  = @university.name
-p
-  strong Description:
-  = @university.description
-p
-  strong Image:
-  = @university.image
-p
-  strong Location:
-  = @university.location
+.container style='margin-top: 3%'
+  main
+    .row.g-3
+      .col-md-5.col-lg-4.order-md-last
+        h1.d-flex.justify-content-between.align-items-center.mb-3
+          | Faculties of the Institute
+          span.badge.bg-secondary.rounded-pill
+            = @university.faculties.size
+        - @university.faculties.each do |faculty|
+          ul.list-group.mb-3
+            li.d-flex.justify-content-between.lh-sm
+              = link_to faculty.name, universities_path(faculty: faculty.name), class: 'btn btn-primary'
 
-=> link_to 'Edit', edit_university_path(@university)
-'|
-=< link_to 'Back', universities_path
+      .col-md-7.col-lg-8
+        h1 style='text-align: center'
+          = @university.name
+
+        = image_tag @university.image.url, width: '100%'
+        br
+        br
+        p style='text-align: justify; text-indent: 20px'
+          = @university.description
+
+        = link_to 'Official website', @university.url, class: 'btn btn-warning', style: 'margin-right: 3%'
+        = link_to "See on map: #{@university.city}", @university.location , class: 'btn btn-primary', style: 'margin-right: 3%'
+        button.btn.btn-primary style='float: right' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat"Submit your application
+        br
+        br
+        h1
+          | Comments
+        hr
+        = form_for [@university, @comments] do |form|
+          div.col-sm-6
+            - if current_user
+              = form.text_field :name, class: 'form-control', placeholder: 'Username', disabled: true, value: current_user.first_name
+            - else
+              = form.text_field :name, class:  'form-control', placeholder: 'Username'
+
+            br
+            = form.text_area :description, class: 'form-control', rows: 6, placeholder: 'Comment...'
+            br
+            = form.submit 'Leave comment', class: 'btn btn-primary'
+          br
+        - @university.comments.each do |comment|
+
+          h4
+            = comment.name
+          p
+            = comment.description
+          hr
+= render 'other/modal'
