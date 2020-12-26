@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_12_25_182220) do
   create_table "universities", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.string "city"
     t.string "location"
     t.string "url"
     t.datetime "created_at", null: false
