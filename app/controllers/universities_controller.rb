@@ -5,12 +5,20 @@ class UniversitiesController < ApplicationController
   # GET /universities.json
   def index
     @faculties = Faculty.all
-    @universities = University.all
+    if params[:faculty_id]
+      @universities = University.where(faculties: params[:faculty_id])
+    else
+      @universities = University.all
+    end
   end
 
-  # GET /universities/1
-  # GET /universities/1.json
+
   def show
+    @user_id = current_user.id
+    @user = User.find(@user_id)
+    @orders = @user.orders.build
+    @comments = @university.comments.build
+
   end
 
   # GET /universities/new
@@ -70,6 +78,6 @@ class UniversitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def university_params
-      params.require(:university).permit(:name, :description, :image, :location)
+      params.require(:university).permit(:name, :description, :image, :location, :city, :url)
     end
 end
