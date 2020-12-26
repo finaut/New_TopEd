@@ -3,6 +3,7 @@ class CreateUniversities < ActiveRecord::Migration[5.2]
     create_table :universities do |t|
       t.string :name
       t.text :description
+      t.string :city
       t.string :location
       t.string :url
       t.timestamps
