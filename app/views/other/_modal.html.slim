@@ -1,0 +1,22 @@
+#exampleModal.modal.fade[tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"]
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title
+          | Fill the form
+        button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
+      .modal-body
+        / = form_for [@user, @orders] do |form|
+        .mb-3
+          / = form.label :first_name, class: 'col-form-label'
+
+          input#recipient-name.form-control[type="text"]
+        .mb-3
+          label.col-form-label[for="message-text"]
+            | Message:
+          textarea#message-text.form-control
+      .modal-footer
+        button.btn.btn-secondary[type="button" data-bs-dismiss="modal"]
+          | Close
+        button.btn.btn-primary[type="button"]
+          | Send message
