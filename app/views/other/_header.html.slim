@@ -40,7 +40,7 @@ nav.navbar.navbar-expand-sm.navbar-dark.bg-dark[aria-label="Third navbar example
           /login, sign_in, logout
         - if current_user
           -if user_signed_in?
-            = link_to current_user.first_name,  users_show_path, class: 'btn btn-outline-primary login-button'
+            = link_to current_user.first_name,  edit_user_registration_path, class: 'btn btn-outline-primary login-button'
 
           = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary login-button'
         - else
