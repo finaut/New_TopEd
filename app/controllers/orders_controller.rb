@@ -4,6 +4,11 @@ class OrdersController < ApplicationController
     @user_id = current_user.id
     @user = User.find(@user_id)
     @order = @user.orders.create set_params
+
+    if @order.errors.any?
+      $order_errors = @order.errors
+    end
+
   end
 
   private
