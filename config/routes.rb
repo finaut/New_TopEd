@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   get 'home/ukrain'
   get 'home/required_documents'
   get 'home/service'
+  devise_for :users
 
   resources :universities do
     resources :comments
   end
-  devise_for :users do
-    resources  :orders
+  resources :users do
+    resources :orders
   end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
