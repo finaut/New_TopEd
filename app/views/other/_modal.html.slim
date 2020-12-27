@@ -6,17 +6,36 @@
           | Fill the form
         button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
       .modal-body
-        / = form_for [@user, @orders] do |form|
-        .mb-3
-          / = form.label :first_name, class: 'col-form-label'
+        - if $order_errors
+          - $order_errors.full_messages.each do |msg|
+            .alert.alert-danger
+              = msg
 
-          input#recipient-name.form-control[type="text"]
-        .mb-3
-          label.col-form-label[for="message-text"]
-            | Message:
-          textarea#message-text.form-control
-      .modal-footer
-        button.btn.btn-secondary[type="button" data-bs-dismiss="modal"]
-          | Close
-        button.btn.btn-primary[type="button"]
-          | Send message
+
+        = form_for [@user, @orders], remote: true do |form|
+          .mb-3
+            .row
+              .col-6
+                = form.label :first_name, class: 'col-form-label'
+                = form.text_field :first_name, class: 'form-control', placeholder: 'like: James', value: current_user.first_name
+              .col-6
+                = form.label :last_name, class: 'col-form-label'
+                = form.text_field :last_name, class: 'form-control', placeholder: 'like: Johnson', value: current_user.last_name
+          .mb-3
+            .row
+              .col-6
+                = form.label :mobile_number, class: 'col-form-label'
+                = form.text_field :mobile_number, class: 'form-control', placeholder: '+380...', value: current_user.mobile_number
+              .col-6
+                = form.label :country, class: 'col-form-label'
+                = form.text_field :country, class: 'form-control', placeholder: 'Where you live', value:  current_user.country
+            .mb-3
+              = form.label :university,  class: 'col-form-label'  
+              = form.text_field :university, class: 'form-control', readonly: true, value: @university.name
+            .mb-3
+              = form.label :faculty, class: 'col-form-label'
+              = form.collection_select :faculty, @university.faculties, :name, :name, class: 'form-select'
+
+            .modal-footer
+              button.btn.btn-secondary[type="button" data-bs-dismiss="modal"] Close
+              = form.submit 'Send form', class: 'btn btn-primary'
