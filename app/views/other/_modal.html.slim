@@ -6,13 +6,10 @@
           | Fill the form
         button.btn-close[type="button" data-bs-dismiss="modal" aria-label="Close"]
       .modal-body
-        - if $order_errors
-          - $order_errors.full_messages.each do |msg|
-            .alert.alert-danger
-              = msg
 
 
-        = form_for [@user, @orders], remote: true do |form|
+
+        = form_for [@user, @orders] do |form|
           .mb-3
             .row
               .col-6

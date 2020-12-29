@@ -1,7 +1,12 @@
-main
+br
+.container
+  - if flash[:notice]
+    .alert.alert-success
+      = flash[:notice]
+  main
   section.py-5.text-center.container
     .row.py-lg-5
-      .col-lg-6.col-md-8.mx-auto
+      .col-lg-12.col-md-12.mx-auto
         - @faculties.each do |faculty|
           = link_to faculty.name, universities_path(faculty_id: faculty.id), class: 'btn btn-primary', style: 'margin: 5px'
         = link_to 'All Universities', universities_path, class: 'btn btn-warning', style: 'margin: 5px'
