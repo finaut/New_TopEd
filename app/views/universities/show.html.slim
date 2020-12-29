@@ -3,6 +3,13 @@
   main
     .row.g-3
       .col-md-5.col-lg-4.order-md-last
+        - if flash[:order_errors]
+          - flash[:order_errors].each do |msg|
+            .alert.alert-danger
+              - msg.each do |key, value|
+                p
+                  = key.capitalize + " : " + value.first
+
         h1.d-flex.justify-content-between.align-items-center.mb-3
           | Faculties of the Institute
           span.badge.bg-secondary.rounded-pill
@@ -35,10 +42,14 @@
         hr
 
         = form_for [@university, @comments] do |form|
-          - if $comment_errors
-            - $comment_errors.full_messages.each do |msg|
+
+          - if flash[:comment_errors]
+            - flash[:comment_errors].flatten.each do |msg|
               .alert.alert-danger
-                = msg
+                - msg.each do |key, value|
+                  p
+                    = key.capitalize + " : " + value.first
+
 
           div.col-sm-6
             - if current_user

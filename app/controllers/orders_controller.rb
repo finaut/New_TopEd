@@ -1,13 +1,20 @@
 class OrdersController < ApplicationController
   def create
-    @user_id = current_user.id
-    @user = User.find(@user_id)
+    @user = User.find(current_user.id)
     @order = @user.orders.create set_params
+    @university = University.find_by(name: @order.university)
+
+    flash[:order_errors] = Array.new
 
     if @order.errors.any?
-      $order_errors = @order.errors
+      flash[:order_errors] << @order.errors
+      redirect_to university_path @university
     end
-    redirect_to universities_path
+
+    if @order.save
+      flash[:notice] = 'Your application has been successfully processed'
+      redirect_to universities_path
+    end
   end
 
   def destroy
