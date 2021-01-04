@@ -6,21 +6,21 @@ The main models that were involved in this project:
 
 Server in full working order: http://165.22.95.216/
 
-##1. Special gems:
-    * devise, '4.7.3'
-    * rails_admin, '2.0.2'
-    * slim_rails, '3.2.0'    
-    * paperclip, '6.1.0'
-    * pg, '1.2.3'
+## 1. Special gems:
+    devise, '4.7.3'
+    rails_admin, '2.0.2'
+    slim_rails, '3.2.0'    
+    paperclip, '6.1.0'
+    pg, '1.2.3'
    
  
-##2. List of used models:
-    * User
-    * Faculty
-    * University
-    * Faculty_University
-    * Order
-    * Comment
+## 2. List of used models:
+    User
+    Faculty
+    University
+    Faculty_University
+    Order
+    Comment
 
     
 `User` - Thanks to gem devise, it was possible to create extras of the User class, as well as the Admin column with the boolean value true/false was added to the table schema so that the user with the value true could enter the tab / admin and make changes and create new Institutes / Faculties as well also be able to view the status of requests and comments.
