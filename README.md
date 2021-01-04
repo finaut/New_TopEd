@@ -29,7 +29,7 @@ Server in full working order: http://165.22.95.216/
 
 `Order, Comment` -  Objects of user interaction and universities
 
-##3. Database 
+## 3. Database 
 Environment: Test \ Development
 
 For the environment of the developer and the test, the `SQLite` database was chosen since there are no security problems on my local PC and I do not see the point of unnecessary gestures.
@@ -38,7 +38,7 @@ Environment: Production
 
 For the production environment, the `postgreSQL` database will be the optimal solution, it ideally combines security and comfortable syntax.
 
-##4. Server
+## 4. Server
 
 HTTP service and app service:
 
