@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_12_25_182220) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "university_id"
+    t.bigint "university_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["university_id"], name: "index_comments_on_university_id"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 2020_12_25_182220) do
   end
 
   create_table "faculties_universities", force: :cascade do |t|
-    t.integer "faculty_id"
-    t.integer "university_id"
+    t.bigint "faculty_id"
+    t.bigint "university_id"
     t.index ["faculty_id"], name: "index_faculties_universities_on_faculty_id"
     t.index ["university_id"], name: "index_faculties_universities_on_university_id"
   end
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_12_25_182220) do
     t.string "faculty"
     t.string "university"
     t.string "status"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -79,4 +82,6 @@ ActiveRecord::Schema.define(version: 2020_12_25_182220) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "universities"
+  add_foreign_key "orders", "users"
 end
