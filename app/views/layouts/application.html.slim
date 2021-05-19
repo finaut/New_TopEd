@@ -5,8 +5,10 @@ html
       | Top-notch Education Consult Ukraine
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
+    meta property="og:image" content="/logotip.jpg"
+    link rel="icon" href="/favicon.ico" type="image/x-icon"
 
     = render 'other/meta_and_link'
 
